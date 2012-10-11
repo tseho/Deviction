@@ -3,7 +3,7 @@ Deviction
 
 ## Basic usage : ##
 
-<code>
+<pre>
 
 	$deviction = new Deviction();
 	
@@ -19,4 +19,4 @@ Deviction
 	
 	Deviction::getDetectedDeviceFormat();
 	
-</code>
+</pre>
