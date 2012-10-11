@@ -1,7 +1,7 @@
 Deviction
 ============
 
-## Basic usage :
+## Basic usage : ##
 
 
 $deviction = new Deviction();
