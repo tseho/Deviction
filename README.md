@@ -3,7 +3,9 @@ Deviction
 
 ## Basic usage : ##
 
-<code>$deviction = new Deviction();
+<code>
+
+	$deviction = new Deviction();
 	
 	//This function will return the current device detected or selected.
 	
