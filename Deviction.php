@@ -57,6 +57,10 @@ class Deviction {
         
         $this->setDebugMode($debugMode);
         
+        if($this->isDebugMode){
+        	$this->destroyDeviceInSession();
+        }
+        
         if(is_array($deviceFormats) && sizeof($deviceFormats) > 0){
             $this->setAllDeviceFormats($deviceFormats);
         }
@@ -215,6 +219,14 @@ class Deviction {
             return null;
         }
     }
+    
+    /**
+     * This function will destroy the device format stored in session.
+     */
+    protected function destroyDeviceInSession() {
+    	$this->startSession();
+    	unset($_SESSION['deviction']);
+    }
 
     /**
      * Analyze the user agent and return the device format
@@ -312,7 +324,9 @@ class Deviction {
         
         if (($ignoreDebugging === false && $this->debugMode === false) || $ignoreDebugging === true) {
             if (in_array($format, $this->deviceFormats)) {
-                $this->setDeviceInSession($format);
+            	if( ! $this->isDebugMode) {
+                	$this->setDeviceInSession($format);
+                }
                 $this->setDeviceFormat($format);
                 return true;
             }else{
@@ -320,7 +334,6 @@ class Deviction {
             }
         }else if($ignoreDebugging === false && $this->debugMode === true){
             if (in_array($this->debugDevice, $this->deviceFormats)) {
-                $this->setDeviceInSession($this->debugDevice);
                 $this->setDeviceFormat($this->debugDevice);
                 return true;
             }else{

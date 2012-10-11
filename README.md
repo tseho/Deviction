@@ -5,6 +5,8 @@ Deviction
 
 <pre>
 
+	//Initilization
+
 	$deviction = new Deviction();
 	
 	//This function will return the current device detected or selected.
@@ -18,5 +20,15 @@ Deviction
 	//This static function will return the real detected device.
 	
 	Deviction::getDetectedDeviceFormat();
+	
+</pre>
+
+## Debugging mode: ##
+
+<pre>
+
+	//Initilization, we force using mobile format.
+
+	$deviction = new Deviction(true, Deviction::mobile);
 	
 </pre>
